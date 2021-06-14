@@ -1,0 +1,150 @@
+/**
+ * this is the main configuration file of your bit workspace.
+ * for full documentation, please see: https://harmony-docs.bit.dev/workspace/configurations
+ **/ {
+  "$schema": "https://static.bit.dev/teambit/schemas/schema.json",
+  /**
+   * main configuration of the Bit workspace.
+   **/
+  "teambit.workspace/workspace": {
+    /**
+     * the name of the component workspace. used for development purposes.
+     **/
+    "name": "uikit",
+    /**
+     * set the icon to be shown on the Bit server.
+     **/
+    "icon": "https://gitlab.com/waweb/assets/-/raw/main/graphics/wa-icon/PNG/wa-iconxhdpi.png",
+    /**
+     * default directory for all components in workspace, the following placeholders are available:
+     * name - component name includes namespace, e.g. 'ui/button'.
+     * scopeId - full scope-id includes the owner, e.g. 'teambit.compilation'.
+     * scope - scope name only, e.g. 'compilation'.
+     * owner - owner name in bit.dev, e.g. 'teambit'.
+     **/
+    "defaultDirectory": "src/{name}",
+    /**
+     * default scope for all components in workspace.
+     **/
+    "defaultScope": "waweb.uikit"
+  },
+  /**
+   * main configuration for component dependency resolution.
+   **/
+  "teambit.dependencies/dependency-resolver": {
+    /**
+     * choose the package manager for Bit to use. you can choose between 'yarn', 'pnpm'
+     */
+    "packageManager": "teambit.dependencies/pnpm",
+    "policy": {
+      "dependencies": {
+        "@babel/runtime": "7.14.0",
+        "@material-ui/core": "4.11.4",
+        "@material-ui/icons": "4.11.2",
+        "@teambit/base-ui.elements.icon": "0.6.11",
+        "@teambit/legacy": "1.0.92",
+        "@testing-library/react": "11.2.7",
+        "@types/jest": "26.0.23",
+        "@types/lodash": "4.14.170",
+        "@types/node": "15.6.1",
+        "@types/react": "17.0.8",
+        "@types/react-dom": "17.0.5",
+        "@watheia/base-ui.atoms.base-icon": "0.0.9",
+        "@watheia/base-ui.atoms.icon": "1.0.10",
+        "@watheia/base-ui.atoms.image": "1.0.10",
+        "@watheia/base-ui.atoms.image-base": "0.0.10",
+        "@watheia/base-ui.constants.storage": "0.1.6",
+        "@watheia/base-ui.design.error-page": "0.0.12",
+        "@watheia/base-ui.design.external-link": "0.0.11",
+        "@watheia/base-ui.mdx.ui.heading": "0.0.12",
+        "@watheia/base-ui.mdx.ui.section": "0.0.12",
+        "@watheia/base-ui.mdx.ui.separator": "0.0.12",
+        "@watheia/base-ui.text.heading": "0.1.14",
+        "@watheia/base-ui.theme.brand-definition": "0.1.7",
+        "@watheia/base-ui.theme.color-definition": "0.1.7",
+        "@watheia/base-ui.theme.fonts.icon-font": "2.0.3",
+        "@watheia/base-ui.theme.fonts.roboto": "2.0.2",
+        "@watheia/base-ui.theme.fonts.source-sans": "2.0.4",
+        "@watheia/base-ui.theme.heading-margin-definition": "0.1.5",
+        "@watheia/base-ui.theme.shadow-definition": "0.1.5",
+        "@watheia/base-ui.theme.size-definition": "0.1.7",
+        "@watheia/base-ui.theme.theme-provider": "0.1.14",
+        "eslint": "7.27.0",
+        "eslint-config-airbnb-typescript": {
+          "version": "5.1.0",
+          "preserve": true
+        },
+        "eslint-config-prettier": "8.3.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jsx-a11y": "^6.4.1",
+        "eslint-plugin-react": "7.24.0",
+        "eslint-plugin-react-hooks": "4.2.0",
+        "lodash": "4.17.21",
+        "prettier": "2.3.0",
+        "react": "^16.13.1",
+        "react-dom": "^16.13.1",
+        "react-use-dimensions": "1.2.1",
+        "tslib": "2.2.0",
+        "typescript": "4.1.5"
+      },
+      "peerDependencies": {
+        "@apollo/client": "^3.0.0",
+        "browserslist": "^4.16.3",
+        "core-js": "^3.13.0",
+        "graphql": "^14.7.0",
+        "react": "16.13.1",
+        "react-dom": "16.13.1"
+      }
+    },
+    "packageManagerArgs": [],
+    "devFilePatterns": ["**/*.spec.ts"],
+    "strictPeerDependencies": true
+  },
+  /**
+   * workspace variants allow to set different subsets of configuration for components in your workspace.
+   * this is extremely useful for upgrading, aligning and building components with a
+   * new set of dependencies.
+   **/
+  "teambit.workspace/variants": {
+    /**
+     * "*" is a special rule which applied on all components in the workspace.
+     **/
+    "*": {
+      "teambit.pkg/pkg": {
+        "packageManagerPublishArgs": ["--access public"],
+        "packageJson": {
+          "private": false,
+          "repository": "https://gitlab.com/watheia/waweb.git",
+          "author": "Aaron R Miller <amiller@watheia.org>",
+          "license": "EPL-2.0",
+          "homepage": "https://watheia.app/",
+          "keywords": [
+            "watheia",
+            "app",
+            "micro",
+            "micro-component",
+            "web-component",
+            "micro-frontend",
+            "atomic-design",
+            "material-ui"
+          ]
+        }
+      },
+      "teambit.envs/envs": {
+        "env": "teambit.react/react"
+      },
+      "teambit.react/react": {
+        "mdx": true
+      }
+    },
+    "src/theme/theme-provider": {
+      "defaultScope": "waweb.uikit",
+      "teambit.envs/envs": {
+        "env": "teambit.react/react"
+      },
+      "teambit.react/react": {
+        "mdx": true
+      }
+    }
+  }
+}

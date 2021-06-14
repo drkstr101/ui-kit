@@ -1,0 +1,9 @@
+/** @format */
+
+$staticStorageUrl: "https://static.bit.dev";
+// or... uncached for dev:
+// $staticStorageUrl: 'https://watheia.sfo3.cdn.digitaloceanspaces.com/assets';
+
+:export {
+  staticStorageUrl: $staticStorageUrl;
+}

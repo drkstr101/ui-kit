@@ -1,0 +1,29 @@
+---
+description: Provider context.
+labels: ["theme", "context", "material-ui"]
+---
+
+<!-- @format -->
+
+A simple material-ui theme provider with a main color setting.
+
+import { Theme } from "./theme"
+import { ThemeProvider } from "./theme-provider"
+import { MockComponent } from "./theme-provider.composition"
+import { Typography } from "@material-ui/core"
+
+## React Theme Context
+
+This is a simple [React Context](https://reactjs.org/docs/context.html) shared as a Bit
+component. Use this component to apply a theme as a context to set on it's children.
+
+### Component usage
+
+```tsx
+;() => (
+  <ThemeProvider color="#F2B705">
+    <Typography color="primary">My lovely children now get a theme!</Typography>
+    <MockComponent />
+  </ThemeProvider>
+)
+```

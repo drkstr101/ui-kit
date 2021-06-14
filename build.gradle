@@ -1,0 +1,70 @@
+plugins {
+  id 'watheia.base-conventions'
+  id 'distribution'
+  id 'publishing'
+  id 'ivy-publish'
+}
+
+tasks.register('bitImport', Exec) {
+  mustRunAfter tasks.clean
+  finalizedBy bitInstall
+  executable 'bit'
+  args 'import'
+} 
+
+tasks.register('bitInstall', Exec) {
+  mustRunAfter tasks.clean
+  executable 'bit'
+  args 'import'
+} 
+
+tasks.register('bitCompile', Exec) {
+  mustRunAfter tasks.clean, tasks.bitImport
+  dependsOn tasks.bitInstall
+  executable 'bit'
+  args 'compile'
+}
+
+tasks.register('bitBuild', Exec) {
+  mustRunAfter clean, bitImport
+  dependsOn bitInstall
+  executable 'bit'
+  args 'build'
+}
+
+tasks.register('bitTest', Exec) {
+  mustRunAfter clean, bitImport
+  dependsOn bitInstall
+  executable 'bit'
+  args 'test'
+}
+
+tasks.register('bitStatus', Exec) {
+  mustRunAfter tasks.clean, bitImport, bitBuild
+  dependsOn bitCompile
+  executable 'bit'
+  args 'status'
+}
+
+tasks.register('bitTag', Exec) {
+  mustRunAfter tasks.clean
+  dependsOn bitImport
+  executable 'bit'
+  args 'tag', '--all', project.version
+}
+
+tasks.register('bitExport', Exec) {
+  mustRunAfter tasks.clean, tasks.bitBuild
+  dependsOn bitImport, bitTag
+  executable 'bit'
+  args 'export'
+}
+
+
+build {
+  dependsOn bitBuild
+}
+
+publish {
+  dependsOn bitTag
+}
