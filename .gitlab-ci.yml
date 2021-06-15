@@ -19,8 +19,6 @@ stages: # List of stages for jobs, and their order of execution
 .updateContainerJob:
   image: docker:stable
   stage: environment
-  services:
-    - docker:dind
   script:
     - |
       echo "Building and shipping image to $CI_REGISTRY_IMAGE"
