@@ -213,7 +213,7 @@
     },
     "theme/theme-provider": {
         "scope": "waweb.uikit",
-        "version": "0.2.0",
+        "version": "0.2.2",
         "mainFile": "index.ts",
         "rootDir": "src/theme/theme-provider"
     },

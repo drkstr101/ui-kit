@@ -10,9 +10,9 @@ importers:
       '@watheia/base-ui.atoms.base-icon': registry.npmjs.org/@watheia/base-ui.atoms.base-icon/0.0.9_react-dom@16.14.0+react@16.14.0
       '@watheia/base-ui.atoms.icon': registry.npmjs.org/@watheia/base-ui.atoms.icon/1.0.10_react-dom@16.14.0+react@16.14.0
       '@watheia/base-ui.atoms.image': registry.npmjs.org/@watheia/base-ui.atoms.image/1.0.10_react-dom@16.14.0+react@16.14.0
-      '@watheia/base-ui.atoms.image-base': link:src/atoms/image-base
+      '@watheia/base-ui.atoms.image-base': registry.npmjs.org/@watheia/base-ui.atoms.image-base/0.0.10_react-dom@16.14.0+react@16.14.0
       '@watheia/base-ui.atoms.link': registry.npmjs.org/@watheia/base-ui.atoms.link/0.0.7_react-dom@16.14.0+react@16.14.0
-      '@watheia/base-ui.constants.storage': link:src/constants/storage
+      '@watheia/base-ui.constants.storage': registry.npmjs.org/@watheia/base-ui.constants.storage/0.1.6_react-dom@16.14.0+react@16.14.0
       '@watheia/base-ui.design.error-page': registry.npmjs.org/@watheia/base-ui.design.error-page/0.0.12_react-dom@16.14.0+react@16.14.0
       '@watheia/base-ui.design.external-link': registry.npmjs.org/@watheia/base-ui.design.external-link/0.0.11_react-dom@16.14.0+react@16.14.0
       '@watheia/base-ui.input.button': registry.npmjs.org/@watheia/base-ui.input.button/0.1.15_react-dom@16.14.0+react@16.14.0
@@ -93,9 +93,9 @@ importers:
       '@watheia/base-ui.atoms.base-icon': 0.0.9
       '@watheia/base-ui.atoms.icon': 1.0.10
       '@watheia/base-ui.atoms.image': 1.0.10
-      '@watheia/base-ui.atoms.image-base': workspace:0.0.10
+      '@watheia/base-ui.atoms.image-base': 0.0.10
       '@watheia/base-ui.atoms.link': 0.0.7
-      '@watheia/base-ui.constants.storage': workspace:0.1.6
+      '@watheia/base-ui.constants.storage': 0.1.6
       '@watheia/base-ui.design.error-page': 0.0.12
       '@watheia/base-ui.design.external-link': 0.0.11
       '@watheia/base-ui.input.button': 0.1.15

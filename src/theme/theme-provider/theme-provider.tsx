@@ -2,7 +2,7 @@
 
 import React, { ReactNode } from "react"
 import { createTheme, Theme } from "./theme"
-import { createMuiTheme, responsiveFontSizes, MuiThemeProvider } from "@material-ui/core"
+import { createMuiTheme, responsiveFontSizes, MuiThemeProvider, CssBaseline } from "@material-ui/core"
 
 export type ThemeProviderProps = {
   /**
@@ -20,8 +20,11 @@ export function ThemeProvider({ mode, children }: ThemeProviderProps) {
   const theme = createTheme("light")
 
   return (
-    <Theme.Provider value={{ mode }}>
-      <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
-    </Theme.Provider>
+    <>
+      <CssBaseline />
+      <Theme.Provider value={{ mode }}>
+        <MuiThemeProvider theme={theme}>{children}</MuiThemeProvider>
+      </Theme.Provider>
+    </>
   )
 }
